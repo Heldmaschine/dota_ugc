@@ -1,0 +1,58 @@
+"584_razor_chain_lightning"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass" "rubick_fade_bolt"//"ability_datadriven"
+	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel" "4"
+	"AbilityTextureName" "rubick_fade_bolt"
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------	
+	"AbilityCastPoint" "0.1 0.1 0.1 0.1"
+	// Time
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown" "11.0"
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost" "90 105 125 145"
+	// Cast Range
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange" "800 800 800 800"
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue" "0.35" // can chain to multiple units
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type" "FIELD_INTEGER"
+			"damage" "75 150 225 290"
+		}
+		"02"
+		{
+			"var_type" "FIELD_INTEGER"
+			"jump_damage_reduction_pct" "15"
+		}
+		"03"
+		{
+			"var_type" "FIELD_INTEGER"
+			"jump_count" "3 5 7 9"
+		}
+		"04"
+		{
+			"var_type" "FIELD_INTEGER"
+			"radius" "500"
+		}
+		"05"
+		{
+			"var_type" "FIELD_FLOAT"
+			"jump_delay" "0.25 0.25 0.25 0.25"
+		}
+	}
+}

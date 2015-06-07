@@ -1,0 +1,74 @@
+"584_razor_stormseeker"
+{
+// General
+//-------------------------------------------------------------------------------------------------------------
+	"BaseClass" "ability_datadriven"
+	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName" "razor_eye_of_the_storm"
+	"MaxLevel" "3"
+	"AbilitySpecial"
+	{	
+	"01"
+	{
+		"var_type" "FIELD_INTEGER"
+		"aura_radius" "500 550 600"
+	}
+	"03"
+	{
+		"var_type" "FIELD_INTEGER"
+		"aura_damage_per_tick" "60 90 120"
+	}
+	"04"
+	{
+		"var_type" "FIELD_FLOAT"
+		"aura_damage_interval" "3.25"
+	}
+	}
+	"Modifiers"
+	{
+
+		"modifier_stormseeker_aura_emitter"
+		{
+			"Passive" "1"
+			"IsHidden" "1"
+			"EffectName" "particles/items2_fx/radiance_owner.vpcf"
+			"EffectAttachType" "follow_origin"
+			"Aura" "modifier_stormseeker_aura"
+			"Aura_Radius" "%aura_radius"
+			"Aura_Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			"Aura_ApplyToCaster" "0"
+		}
+		"modifier_stormseeker_aura"
+		{
+			"Passive" "0"
+			"IsHidden" "1"
+			"IsBuff" "0"
+			"IsDebuff" "1"
+			"IsPurgable" "0"
+			"EffectName" "particles/items2_fx/radiance.vpcf"
+			"EffectAttachType" "follow_origin"
+			"ThinkInterval" "%aura_damage_interval"
+			"OnIntervalThink"
+			{
+				"Damage"
+				{
+					"Target"		"TARGET"
+					"Type"			"DAMAGE_TYPE_MAGICAL"
+					"Damage"		"%aura_damage_per_tick"
+				}
+				//"RunScript"
+				//{
+				//	"ScriptFile" "items/item_radiance.lua"
+				//	"Function" "modifier_item_radiance_datadriven_aura_on_interval_think"
+				//	"AuraDamageInterval" "%aura_damage_interval"
+				//	"AuraDamagePerSecond" "%aura_damage_per_second"
+				//}
+			}
+		}
+	}
+}

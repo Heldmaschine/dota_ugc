@@ -1,0 +1,52 @@
+"584_razor_unholy"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass" "ability_datadriven"
+	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" "razor_unstable_current"
+	"MaxLevel" "4"
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_health_regen" "50 100 150 200"
+		}
+		"02"
+		{
+			"var_type" "FIELD_INTEGER"
+			"bonus_movement_speed_percentage" "3 5 8 10"
+		}
+		"03"
+		{
+			"var_type" "FIELD_FLOAT"
+			"regen_interval" "0.3"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_unholy_fervor_razor"
+		{
+			"Passive" "1"
+			"IsHidden" "1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage"
+				"ThinkInterval"  "%regen_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_shared/regenmulti.lua"
+						"Function"		"MultiplyRegen"
+						"Multiplyer"	"%bonus_health_regen"
+						"HealInterval" 	"%regen_interval"
+					}
+				}
+			}
+		}
+	}
+}

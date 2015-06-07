@@ -1,0 +1,12 @@
+"584_dragon_knight_elder_dragon_form"
+{
+	//TODO: Rewrite lvl 1&2 to giff bonus HP
+	"BaseClass"				"ability_datadriven"
+	"override_ability"		"dragon_knight_elder_dragon_form"
+	// Time
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown" "135.0"
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost" "175 225 300"
+}
